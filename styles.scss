@@ -16,10 +16,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #009d94;
-  border-color: #009d94;
-  border-radius: 50px;
-  box-shadow: 0px 0px 2px 1px #009d94;
+  border: 1px solid #ffffff;
+  border-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 1px #ffffff;
 }
 
 .facts-container {
@@ -31,7 +31,7 @@ body {
 .title {
   margin: 0;
   font-size: 36px;
-  color: #009d94;
+  color: #ffffff;
   margin-top: 12px;
   margin-bottom: 12px;
   font-weight: bold;
@@ -41,7 +41,7 @@ body {
 .text {
   margin: 0;
   font-size: 22px;
-  color: #009d94;
+  color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
   margin: 12px 0 12px 0;
   width: 80%;
@@ -51,8 +51,8 @@ body {
 .number-input {
   font-size: 22px;
   border-radius: 50px;
-  color: #009d94;
-  border-color: #009d94;
+  color: #243946;
+  border-color: #ffffff;
   width: 100px;
   height: 50px;
   padding: 0px 8px 0px 8px;
@@ -63,14 +63,38 @@ body {
   height: 40px;
   font-size: 22px;
   background-color: transparent;
-  border: 1px solid #009d94;
+  border: 1px solid #ffffff;
   border-radius: 50px;
-  color: #009d94;
+  color: #ffffff;
   position: absolute;
-  bottom: 120;
+  bottom: 120px;
 }
 
 .btn:hover {
-  background-color: #009d94;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #243946;
+  border-color: #ffffff;
+}
+
+.card-get-all-users-container {
+  width: 800px;
+}
+
+.get-all-users-table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 750px;
+  height: 75%;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+}
+
+.users-table-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+  height: 50px;
 }

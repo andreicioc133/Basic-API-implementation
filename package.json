@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.2",
-    "local-cors-proxy": "^1.1.0"
+    "local-cors-proxy": "^1.1.0",
+    "pg-promise": "^11.10.2"
   }
 }

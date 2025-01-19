@@ -44,26 +44,55 @@ async function getDogFacts() {
   });
 }
 
-async function getRandomDuckImg() {
-  let URI = "http://localhost:3000";
+async function getAllUsers() {
+  let URI = "http://localhost:3000/api/v1/users";
   //   let proxiedURL = "http://localhost:8010/proxy";
 
-  fetch(URI, {
-    // method: "GET",
-    // mode: "cors",
-  })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+  const res = await fetch(URI);
+  const data = await res.json();
+  console.log("data: ", data);
 
-  //   const data = res.json();
-  //   console.log(data);
+  data.map((user) => {
+    const row = document.createElement("div");
+    const tableUsersContainer = document.querySelector(
+      ".get-all-users-table-container"
+    );
+    row.classList.add("users-table-row");
+    tableUsersContainer.appendChild(row);
+
+    const fields = [
+      {
+        name: "first_name",
+        value: user.first_name,
+      },
+      {
+        name: "last_name",
+        value: user.last_name,
+      },
+      {
+        name: "age",
+        value: user.age,
+      },
+      {
+        name: "email",
+        value: user.email,
+      },
+    ];
+
+    fields.map((field) => {
+      const element = document.createElement("p");
+      element.classList.add("text");
+      element.innerHTML = field?.value;
+      row.appendChild(element);
+    });
+  });
 }
 
 $(document).ready(function () {
   $("#dog-facts-btn").click(function () {
     getDogFacts();
   });
-  $("#random-duck-btn").click(function () {
-    getRandomDuckImg();
+  $("#get-all-users-btn").click(function () {
+    getAllUsers();
   });
 });
