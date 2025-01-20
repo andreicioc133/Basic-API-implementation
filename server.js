@@ -5,6 +5,10 @@ const port = 3000;
 const db = require("./db");
 
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+
+// parse application/json
+app.use(express.json());
 
 app.get("/", async () => {
   fetch("https://anime-facts-rest-api.herokuapp.com/api/v1/fma_brotherhood", {
@@ -27,6 +31,21 @@ app.get("/api/v1/users", async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).send("Internal Server Error");
+  }
+});
+
+app.post("/api/v1/login", async (req, res) => {
+  const { email, password } = req.body;
+  console.log(req.body);
+  try {
+    const result = await db.query(
+      `SELECT * FROM fake_users WHERE email = '${email}' and password = '${password}'`
+    );
+    res.json(result.rows);
+    console.log("result: ", result.rows);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal server error");
   }
 });
 

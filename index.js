@@ -88,11 +88,34 @@ async function getAllUsers() {
   });
 }
 
+const login = async () => {
+  let URI = "http://localhost:3000/api/v1/login";
+  //   let proxiedURL = "http://localhost:8010/proxy";
+  const email = document.querySelector("#loginEmail").value;
+  const password = document.querySelector("#loginPassword").value;
+
+  console.log(email);
+
+  const res = await fetch(URI, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email: email, password: password }),
+  });
+  const data = await res.json();
+  console.log("data: ", data);
+};
+
 $(document).ready(function () {
   $("#dog-facts-btn").click(function () {
     getDogFacts();
   });
   $("#get-all-users-btn").click(function () {
     getAllUsers();
+  });
+  $("#form-submit-btn").click(function () {
+    login();
   });
 });
