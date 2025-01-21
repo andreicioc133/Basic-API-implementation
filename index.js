@@ -6,6 +6,31 @@ function removeAllChildNodes(parent) {
   }
 }
 
+const handleLoginValidation = (data) => {
+  const loginEmailInput = document.querySelector("#loginEmail");
+  const loginPasswordInput = document.querySelector("#loginPassword");
+  const validationTextContainer = document.querySelector(
+    ".validation-text-container"
+  );
+
+  if (data.length === 0) {
+    const errorText = document.createElement("p");
+    errorText.classList.add("text");
+    errorText.style.color = "red";
+    errorText.style.fontSize = "16px";
+    errorText.style.textAlign = "left";
+    errorText.innerHTML = "Email or Password are incorrect!";
+    loginEmailInput.style.borderColor = "red";
+    loginPasswordInput.style.borderColor = "red";
+    validationTextContainer.appendChild(errorText);
+    validationTextContainer.style.padding = "8px 0px 8px 0px;";
+    validationTextContainer.style.width = "90%";
+    return;
+  }
+
+  console.log("success");
+};
+
 async function getDogFacts() {
   const number = document.querySelector("#dog-facts-number").value;
   let URI = `https://dog-api.kinduff.com/api/facts?number=${number}`;
@@ -105,6 +130,7 @@ const login = async () => {
     body: JSON.stringify({ email: email, password: password }),
   });
   const data = await res.json();
+  handleLoginValidation(data);
   console.log("data: ", data);
 };
 

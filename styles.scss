@@ -48,7 +48,6 @@ body {
 }
 
 .text {
-  margin: 0;
   font-size: 22px;
   color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
@@ -145,6 +144,8 @@ body {
   flex-direction: row;
   width: 92%;
   padding: 8px 0 8px 0;
+  height: 100%;
+  align-items: flex-end;
 }
 
 .login-form-input {
@@ -156,6 +157,7 @@ body {
   border-top: none;
   border-left: none;
   border-right: none;
+  padding: 8px 0 8px 0;
 }
 
 .login-form-input:focus {
