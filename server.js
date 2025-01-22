@@ -42,7 +42,20 @@ app.post("/api/v1/login", async (req, res) => {
       `SELECT * FROM fake_users WHERE email = '${email}' and password = '${password}'`
     );
     res.json(result.rows);
-    console.log("result: ", result.rows);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal server error");
+  }
+});
+
+app.post("/api/v1/register", async (req, res) => {
+  const { firstName, lastName, age, email, username, password } = req.body;
+  console.log(req.body);
+  try {
+    const result = await db.query(
+      `INSERT INTO fake_users (first_name, last_name, age, email,password)  values ('${firstName}', '${lastName}', ${age}, '${email}','${password}')`
+    );
+    res.json(result.rows);
   } catch (err) {
     console.log(err);
     res.status(500).send("Internal server error");

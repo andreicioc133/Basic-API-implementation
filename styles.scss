@@ -139,6 +139,10 @@ body {
   box-shadow: 6px 4px 1px 2px #000000;
 }
 
+.register-container {
+  height: 500px;
+}
+
 .form-btn-container {
   display: flex;
   flex-direction: row;
@@ -166,13 +170,21 @@ body {
 
 .form-btn {
   width: 100px;
-  height: 40px;
+  height: 55px;
   background-color: #243946;
   border-color: #ffffff;
   color: #ffffff;
   border-radius: 5px;
   border-style: solid;
   outline: none;
+}
+
+.register-btn {
+  display: flex;
+  height: 50px !important;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 
 .form-btn:hover {

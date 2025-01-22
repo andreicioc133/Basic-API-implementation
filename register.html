@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.scss" />
+  </head>
+
+  <body>
+    <div class="title-container">
+      <p class="text" style="font-weight: bold; font-size: 36px">
+        Public Project: API Integrations - Register
+      </p>
+      <a href="index.html"><p class="text">back</p></a>
+    </div>
+    <div class="container">
+      <!-- Login form  -->
+
+      <div class="login-container register-container">
+        <p class="text-blue" style="font-weight: bold; font-size: 28px">
+          Login
+        </p>
+        <label for="uname" class="label-text"><b>First name</b></label>
+        <input
+          type="text"
+          id="registerFirstName"
+          class="login-form-input"
+          placeholder="Enter First Name"
+          name="uname"
+          required
+        />
+        <label for="uname" class="label-text"><b>Last name</b></label>
+        <input
+          type="text"
+          id="registerLastName"
+          class="login-form-input"
+          placeholder="Enter Last name"
+          name="uname"
+          required
+        />
+        <label for="uname" class="label-text"><b>Age</b></label>
+        <input
+          type="number"
+          id="registerAge"
+          class="login-form-input"
+          placeholder="Enter Your Age"
+          name="uname"
+          required
+        />
+
+        <label for="uname" class="label-text"><b>Email</b></label>
+        <input
+          type="text"
+          id="registerEmail"
+          class="login-form-input"
+          placeholder="Enter Username"
+          name="uname"
+          required
+        />
+
+        <label for="psw" class="label-text" style="margin-top: 30px"
+          ><b>Password</b></label
+        >
+        <input
+          type="password"
+          placeholder="Enter Password"
+          id="registerPassword"
+          class="login-form-input"
+          name="psw"
+          required
+        />
+
+        <div class="validation-text-container"></div>
+        <div class="form-btn-container">
+          <button type="button" id="form-register-btn" class="form-btn">
+            Register
+          </button>
+        </div>
+      </div>
+
+      <!-- Login form  END-->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -31,6 +31,35 @@ const handleLoginValidation = (data) => {
   console.log("success");
 };
 
+const handleRegister = async () => {
+  let URI = "http://localhost:3000/api/v1/register";
+
+  const firstName = document.querySelector("#registerFirstName").value;
+  const lastName = document.querySelector("#registerLastName").value;
+  const age = document.querySelector("#registerAge").value;
+  const email = document.querySelector("#registerEmail").value;
+  const password = document.querySelector("#registerPassword").value;
+
+  console.log(email);
+
+  const res = await fetch(URI, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      firstName: firstName,
+      lastName: lastName,
+      age: age,
+      email: email,
+      password: password,
+    }),
+  });
+  const data = await res.json();
+  console.log("data: ", data);
+};
+
 async function getDogFacts() {
   const number = document.querySelector("#dog-facts-number").value;
   let URI = `https://dog-api.kinduff.com/api/facts?number=${number}`;
@@ -143,5 +172,8 @@ $(document).ready(function () {
   });
   $("#form-submit-btn").click(function () {
     login();
+  });
+  $("#form-register-btn").click(function () {
+    handleRegister();
   });
 });
