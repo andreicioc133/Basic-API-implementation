@@ -31,6 +31,44 @@ const handleLoginValidation = (data) => {
   console.log("success");
 };
 
+const handleRegisterValidation = () => {
+  const firstName = document.querySelector("#registerFirstName");
+  const lastName = document.querySelector("#registerLastName");
+  const age = document.querySelector("#registerAge");
+  const email = document.querySelector("#registerEmail");
+  const password = document.querySelector("#registerPassword");
+
+  if (firstName.value === "" || typeof firstName.value !== "string") {
+    firstName.style.color = "red";
+    firstName.style.borderColor = "red";
+    return;
+  }
+
+  if (lastName.value === "" || typeof lastName.value !== "string") {
+    lastName.style.color = "red";
+    lastName.style.borderColor = "red";
+    return;
+  }
+
+  if (age <= 0 || typeof age.value !== "number") {
+    age.style.color = "red";
+    age.style.borderColor = "red";
+    return;
+  }
+
+  if (email.value === "" || typeof email.value !== "string") {
+    email.style.color = "red";
+    email.style.borderColor = "red";
+    return;
+  }
+
+  if (password.value === "" || typeof email.value !== "string") {
+    password.style.color = "red";
+    password.style.borderColor = "red";
+    return;
+  }
+};
+
 const handleRegister = async () => {
   let URI = "http://localhost:3000/api/v1/register";
 
@@ -41,6 +79,8 @@ const handleRegister = async () => {
   const password = document.querySelector("#registerPassword").value;
 
   console.log(email);
+
+  handleRegisterValidation();
 
   const res = await fetch(URI, {
     method: "POST",
