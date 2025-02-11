@@ -38,34 +38,21 @@ const handleRegisterValidation = () => {
   const email = document.querySelector("#registerEmail");
   const password = document.querySelector("#registerPassword");
 
-  if (firstName.value === "" || typeof firstName.value !== "string") {
-    firstName.style.color = "red";
-    firstName.style.borderColor = "red";
-    return;
-  }
+  const fields = [firstName, lastName, email, password];
 
-  if (lastName.value === "" || typeof lastName.value !== "string") {
-    lastName.style.color = "red";
-    lastName.style.borderColor = "red";
-    return;
-  }
+  fields.map((field) => {
+    if (field.value === "") {
+      field.style.color = "red";
+      field.style.borderColor = "red";
+    } else {
+      field.style.color = "#243946";
+      field.style.borderColor = "#243946";
+    }
+  });
 
-  if (age <= 0 || typeof age.value !== "number") {
+  if (age.value === "" || parseInt(age.value) <= 0 || isNaN(age.value)) {
     age.style.color = "red";
     age.style.borderColor = "red";
-    return;
-  }
-
-  if (email.value === "" || typeof email.value !== "string") {
-    email.style.color = "red";
-    email.style.borderColor = "red";
-    return;
-  }
-
-  if (password.value === "" || typeof email.value !== "string") {
-    password.style.color = "red";
-    password.style.borderColor = "red";
-    return;
   }
 };
 
